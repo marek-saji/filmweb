@@ -1,0 +1,72 @@
+{
+  "name": "filmweb",
+  "version": "0.0.0",
+  "description": "FilmWeb “API” using a webdriver backend",
+  "author": "Marek ‘saji’ Augustynowicz <marek.aug@gmail.com> (https://twitter.com/saji_)",
+  "license": "ISC",
+  "keywords": [
+    "filmweb",
+    "api",
+    "webdriver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marek-saji/filmweb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marek-saji/filmweb/issues"
+  },
+  "homepage": "https://github.com/marek-saji/filmweb#readme",
+  "main": "index.js",
+  "scripts": {
+    "test:runtime": "node lib/check-runtime.js",
+    "test:lint": "git ls-files '*.js' | xargs ./node_modules/.bin/eslint",
+    "test:test": "node test.js",
+    "test": "npm run test:runtime && npm run test:lint && npm run test:test",
+    "preinstall": "npm run test:runtime"
+  },
+  "config": {
+    "verbosity": 0,
+    "human_delay": 2000,
+    "human_delay_deviation": 1000,
+    "request_throttle": 10000,
+    "request_throttle_deviation": 5000
+  },
+  "dependencies": {
+    "phantom": "^4.0.0",
+    "selenium-webdriver": "^3.1.0"
+  },
+  "devDependencies": {
+    "chromedriver": "^2.27.3",
+    "eslint": "^3.16.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
+    }
+  }
+}
