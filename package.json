@@ -20,7 +20,7 @@
   "main": "index.js",
   "scripts": {
     "test:runtime": "node lib/check-runtime.js",
-    "test:lint": "git ls-files '*.js' | xargs ./node_modules/.bin/eslint",
+    "test:lint": "git ls-files '*.js' | xargs eslint",
     "test:test": "node test.js",
     "test": "npm run test:runtime && npm run test:lint && npm run test:test",
     "preinstall": "npm run test:runtime"
@@ -37,8 +37,10 @@
     "selenium-webdriver": "^3.1.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "chromedriver": "^2.27.3",
-    "eslint": "^3.16.1"
+    "eslint": "^3.16.1",
+    "mocha": "^3.2.0"
   },
   "eslintConfig": {
     "env": {
