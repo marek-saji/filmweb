@@ -76,7 +76,6 @@ Configuration
 
 We use npm config for options, which means you can can:
 
-- set `NPM_PACKAGE_CONFIG_<OPTION_NAME>` environment variable,
 - use `npm config set filmweb:<OPTION_NAME>=<OPTION_VALUE>`
 - create `.npmrc` file in package’s directory with line
   `filmweb:<OPTION_NAME>=<OPTION_VALUE>`,
