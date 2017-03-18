@@ -29,4 +29,8 @@ Promise.resolve()
         }
     })
     .catch(error => { console.error(error); process.exit(1); })
-    .then(() => console.log('All is fine.'));
+    .then(() => console.log('All is fine.'))
+    .then(
+        () => filmweb.destroy(),
+        () => filmweb.destroy()
+    );
