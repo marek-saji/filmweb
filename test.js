@@ -2,29 +2,19 @@
 
 const filmweb = require('./index').createInstance();
 
+const LOGIN = process.env.npm_package_config_test_login;
+const PASSWORD = process.env.npm_package_config_test_password;
+
 const query = 'the room';
 const rating = ~~(Math.random()*9)+1;
 const review = rating + '½';
-
-var credentials;
-
-try
-{
-    credentials = require('./credentials');
-}
-catch (error)
-{
-    process.stderr.write('Create credentials.json with {password, login} to run tests.\n');
-    process.exit(1);
-}
-
 
 Promise.resolve()
     .then(() => filmweb.search(query))
     .then(({items: [result]}) => {
         console.log(result.title, 'avg. rating is', result.ratings.average);
     })
-    .then(() => filmweb.authenticate(credentials.login, credentials.password))
+    .then(() => filmweb.authenticate(LOGIN, PASSWORD))
     .then(() => filmweb.search(query))
     .then(({items: [result]}) => {
         console.log('User’s rating:', result.ratings.user);
