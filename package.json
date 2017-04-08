@@ -21,8 +21,10 @@
   "scripts": {
     "test:runtime": "node lib/check-runtime.js",
     "test:lint": "git ls-files '*.js' | xargs eslint",
-    "test:test": "node test.js",
+    "test:test": "mocha",
     "test": "npm run test:runtime && npm run test:lint && npm run test:test",
+    "watch:test": "mocha -w",
+    "watch": "npm run watch:test & P1=$! ; wait $P1",
     "preinstall": "npm run test:runtime"
   },
   "config": {
