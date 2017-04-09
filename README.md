@@ -45,8 +45,8 @@ Factory methods
   Create a new instance with separate session and caching.
 
 
-Intance methods
----------------
+Instance methods
+----------------
 
 All return a promise.
 
@@ -61,7 +61,7 @@ methods without authentication. This will use better caching.
 
 - `authenticate(login, password)`
 
-  Returns new object, which uses authenticated session.
+  Authenticate with given credentials.
 
 - `search(query, fields, page=1)`
 
@@ -76,7 +76,7 @@ methods without authentication. This will use better caching.
 Configuration
 -------------
 
-We use npm config for options, which means you can can:
+This package uses npm config for options, which means you can can:
 
 - use `npm config set filmweb:<OPTION_NAME>=<OPTION_VALUE>`
 - create `.npmrc` file in package’s directory with line
