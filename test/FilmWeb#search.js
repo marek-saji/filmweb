@@ -11,11 +11,14 @@ const BAD_QUERY = 'sldjfslkdjf';
 const GOOD_QUERY = 'star wars';
 const PRECISE_QUERY = 'star wars new hope';
 
+const TIMEOUT = 40000;
+const AUTH_TIMEOUT = 40000;
+
 describe('FilmWeb#search()', function () {
     var filmweb;
 
     this.slow(10000);
-    this.timeout(30000);
+    this.timeout(TIMEOUT);
 
     beforeEach(function () {
         this.timeout(120000);
@@ -123,14 +126,17 @@ describe('FilmWeb#search()', function () {
     describe('with sensible query on authenticated instance', function () {
         var searchPromise;
 
+        this.timeout(AUTH_TIMEOUT + TIMEOUT);
+
         before(function getResults () {
-            this.timeout(40000);
+            this.timeout(AUTH_TIMEOUT);
             searchPromise = filmweb
                 .authenticate(login, password)
                 .then(() => filmweb.search(GOOD_QUERY));
         });
 
         it('should contain user rating data when authenticated', function () {
+            this.timeout(TIMEOUT);
             return searchPromise.then(({items}) => {
                 items.forEach(item => {
                     if (! ('user' in item.ratings))
