@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "chromedriver": "^2.27.3",
+    "chromedriver": "^93.0.1",
     "eslint": "^7.32.0",
     "mocha": "^3.2.0"
   },
